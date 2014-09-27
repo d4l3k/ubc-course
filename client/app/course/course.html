@@ -28,18 +28,295 @@
           </div>
         </div>
       </div>
-      <h3>Reviews</h3>
+      <div class="submit-box">
+        <h3>Reviews</h3>
+        <a class="pure-button submit" ng-click="openReview()">New</a>
+      </div>
       <div class="reviews">
-        <div class="review" ng-repeat="review in course.reviews">
+        <div class="review expand" ng-style="{display: reviewVisible}">
+          <form class="pure-form pure-form-stacked">
+            <fieldset>
+              <legend>New Review</legend>
+              <label for="field">Field of Interest</label>
+              <select class="pure-input-1" name="field">
+                <option>Adult and Higher Education</option>
+                <option>African Studies</option>
+                <option>Agricultural Economics</option>
+                <option>Alternative Routes to Computing</option>
+                <option>Anatomy</option>
+                <option>Anesthesia</option>
+                <option>Animal Science</option>
+                <option>Anthropological Archaeology</option>
+                <option>Anthropology</option>
+                <option>Applied Animal Biology</option>
+                <option>Applied Biology</option>
+                <option>Applied Science</option>
+                <option>Arabic Studies</option>
+                <option>Architecture</option>
+                <option>Archival Studies</option>
+                <option>Art History</option>
+                <option>Art Studies in Writing</option>
+                <option>Arts One Program</option>
+                <option>Arts Studies</option>
+                <option>Arts and Science Interdisciplinary Courses</option>
+                <option>Asian Languages</option>
+                <option>Asian Studies</option>
+                <option>Astronomy</option>
+                <option>Atmospheric Science</option>
+                <option>Audiology and Speech Sciences</option>
+                <option>Biochemistry</option>
+                <option>Bioinformatics</option>
+                <option>Biology</option>
+                <option>Biomedical Engineering</option>
+                <option>Biotechnology</option>
+                <option>Botany</option>
+                <option>Bridge Program</option>
+                <option>Business Administration:  Core</option>
+                <option>Business Administration: Accounting</option>
+                <option>Business Administration: Business Statistics</option>
+                <option>Business Administration: Business Technology Management</option>
+                <option>Business Administration: Entrepreneurship</option>
+                <option>Business Administration: Finance</option>
+                <option>Business Administration: Health Care</option>
+                <option>Business Administration: Human Resources Management</option>
+                <option>Business Administration: International Management</option>
+                <option>Business Administration: Law</option>
+                <option>Business Administration: Management Science</option>
+                <option>Business Administration: Marketing</option>
+                <option>Business Administration: Policy Analysis</option>
+                <option>Business Administration: Strategic Management</option>
+                <option>Business Administration: Supply Chain</option>
+                <option>Business Administration: Sustainable Development</option>
+                <option>Business Administration: Technology Management</option>
+                <option>Business Administration: Transportation and Logistics</option>
+                <option>Business Administration: Urban Land Economics</option>
+                <option>Business</option>
+                <option>Canadian Studies</option>
+                <option>Cantonese</option>
+                <option>Cell and Developmental Biology</option>
+                <option>Cellular and Physiological Sciences</option>
+                <option>Cellular, Anatomical and Physiological Sciences</option>
+                <option>Central, Eastern and Northern European Studies</option>
+                <option>Centre for Cross-Faculty Inquiry</option>
+                <option>Chemical and Biological Engineering</option>
+                <option>Chemistry</option>
+                <option>Children's Literature</option>
+                <option>Chinese</option>
+                <option>Civil Engineering</option>
+                <option>Classical Chinese</option>
+                <option>Classical Studies</option>
+                <option>Classical, Near Eastern and Religious Studies</option>
+                <option>Clean Energy Engineering</option>
+                <option>Clinical Dermatology</option>
+                <option>Cognitive Systems Program</option>
+                <option>Commerce Human Resources</option>
+                <option>Commerce</option>
+                <option>Community and Regional Planning</option>
+                <option>Computer Science</option>
+                <option>Computing Information and Cognitive Systems</option>
+                <option>Coordinated Science Program Workshop</option>
+                <option>Counselling Psychology</option>
+                <option>Creative Writing</option>
+                <option>Critical Studies in Sexuality</option>
+                <option>Critical and Curatorial Studies</option>
+                <option>Curriculum and Pedagogy</option>
+                <option>Danish</option>
+                <option>Dental Hygiene</option>
+                <option>Dentistry</option>
+                <option>Digital Media</option>
+                <option>Doctor/Dentist, Patient and Society</option>
+                <option>Early Childhood Education</option>
+                <option>Earth and Ocean Sciences</option>
+                <option>Economics</option>
+                <option>Education</option>
+                <option>Educational Psychology and Special Education</option>
+                <option>Educational Studies</option>
+                <option>Educational Technology</option>
+                <option>Electrical and Computer Engineering</option>
+                <option>Emergency Medicine</option>
+                <option>Engineering Physics</option>
+                <option>Engineering and Public Policy</option>
+                <option>English Language Institute</option>
+                <option>English</option>
+                <option>Environmental Design</option>
+                <option>Environmental Science</option>
+                <option>European Studies</option>
+                <option>Exchange Graduate Research</option>
+                <option>Exchange Programs</option>
+                <option>Executive M.B.A.</option>
+                <option>Faculty of Arts Commuter Transition Program</option>
+                <option>Family Practice</option>
+                <option>Family Studies</option>
+                <option>Film Production</option>
+                <option>Film Studies</option>
+                <option>First Nations Languages</option>
+                <option>First Nations Studies Program</option>
+                <option>Fisheries Research</option>
+                <option>Food Science</option>
+                <option>Food and Resource Economics</option>
+                <option>Food, Nutrition and Health</option>
+                <option>Forest Engineering British Columbia</option>
+                <option>Forest Operations</option>
+                <option>Forestry Silviculture Institute</option>
+                <option>Forestry</option>
+                <option>Foundations of Medicine</option>
+                <option>French, Hispanic and Italian Studies</option>
+                <option>French</option>
+                <option>Gender, Race, Sexuality and Social Justice</option>
+                <option>Genetics</option>
+                <option>Genome Science and Technology</option>
+                <option>Geographical Biogeosciences</option>
+                <option>Geography</option>
+                <option>German</option>
+                <option>Global Resource Systems</option>
+                <option>Greek</option>
+                <option>Haida Gwaii Semesters</option>
+                <option>Health and Society</option>
+                <option>Hebrew</option>
+                <option>Hindi-Urdu</option>
+                <option>History</option>
+                <option>Human Nutrition</option>
+                <option>Indonesian</option>
+                <option>Information Studies</option>
+                <option>Institute of Asian Research</option>
+                <option>Integrated Engineering</option>
+                <option>Integrated Sciences</option>
+                <option>Interdepartmental Medicine</option>
+                <option>Interdisciplinary Studies</option>
+                <option>Interprofessional Health and Human Service</option>
+                <option>Italian Studies</option>
+                <option>Italian</option>
+                <option>Japanese</option>
+                <option>Journalism</option>
+                <option>Kinesiology</option>
+                <option>Korean</option>
+                <option>Land & Food Systems</option>
+                <option>Landscape Architecture</option>
+                <option>Language and Literacy Education</option>
+                <option>Latin American Studies</option>
+                <option>Latin</option>
+                <option>Law and Society</option>
+                <option>Law</option>
+                <option>Library and Information Studies</option>
+                <option>Linguistics</option>
+                <option>Marine Science</option>
+                <option>Materials Engineering</option>
+                <option>Mathematics</option>
+                <option>Mechanical Engineering</option>
+                <option>Medical Genetics</option>
+                <option>Medicine</option>
+                <option>Medieval Studies</option>
+                <option>Microbiology</option>
+                <option>Midwifery</option>
+                <option>Mining Engineering</option>
+                <option>Music</option>
+                <option>Natural Resources Conservation</option>
+                <option>Naval Architecture and Marine Engineering</option>
+                <option>Near Eastern Studies</option>
+                <option>Neuroscience</option>
+                <option>Neurosurgery</option>
+                <option>Nursing</option>
+                <option>Obstetrics and Gynaecology</option>
+                <option>Occupational Therapy</option>
+                <option>Oncology</option>
+                <option>Ophthalmology</option>
+                <option>Oral Biological Medical Sciences</option>
+                <option>Oral Health Sciences</option>
+                <option>Orientation to Medical School</option>
+                <option>Orthopaedics</option>
+                <option>Paediatrics</option>
+                <option>Pathology</option>
+                <option>Persian</option>
+                <option>Pharmaceutical Sciences</option>
+                <option>Pharmacology and Therapeutics</option>
+                <option>Philosophy</option>
+                <option>Physical Therapy</option>
+                <option>Physics</option>
+                <option>Plant Science</option>
+                <option>Plastic Surgery</option>
+                <option>Polish</option>
+                <option>Political Science</option>
+                <option>Portuguese</option>
+                <option>Principles of Human Biology</option>
+                <option>Psychiatry</option>
+                <option>Psychology</option>
+                <option>Punjabi</option>
+                <option>Radiology</option>
+                <option>Rehabilitation Sciences</option>
+                <option>Religion, Literature and The Arts</option>
+                <option>Religious Studies</option>
+                <option>Resource Management and Environmental Studies</option>
+                <option>Romance Studies</option>
+                <option>Russian</option>
+                <option>Sanskrit</option>
+                <option>Scandinavian</option>
+                <option>School of Population & Public Health</option>
+                <option>School of Population & Public Health</option>
+                <option>Science and Technology Studies</option>
+                <option>Science</option>
+                <option>Slavic Studies</option>
+                <option>Social Work</option>
+                <option>Sociology</option>
+                <option>Soil Science</option>
+                <option>South Asian Languages</option>
+                <option>Southeast Asian Languages</option>
+                <option>Spanish</option>
+                <option>Statistics</option>
+                <option>Surgery</option>
+                <option>Swedish</option>
+                <option>Teacher Librarianship</option>
+                <option>Test</option>
+                <option>Theatre</option>
+                <option>Tibetan Languages</option>
+                <option>Transition School</option>
+                <option>Ukrainian</option>
+                <option>Undergraduate Research Opportunities</option>
+                <option>University Writing Centre Courses</option>
+                <option>Urban Design</option>
+                <option>Urban Studies</option>
+                <option>Urological Surgery</option>
+                <option>Vantage College</option>
+                <option>Visiting Graduate Student</option>
+                <option>Visiting Undergraduate Research Students</option>
+                <option>Visual Arts</option>
+                <option>Vocational Rehabilitation Counselling</option>
+                <option>Wood Products Processing</option>
+                <option>Zoology</option>
+              </select>
+              </label>
+
+              <label for="like" class="pure-checkbox">
+                <input id="like" type="checkbox"> Like
+              </label>
+              <label for="useful" class="pure-checkbox">
+                <input id="useful" type="checkbox"> Useful
+              </label>
+              <label for="easy" class="pure-checkbox">
+                <input id="easy" type="checkbox"> Easy
+              </label>
+
+              <label for="text">Review</label>
+                <textarea class="pure-input-1" name="text" type="text"></textarea>
+              </label>
+              <a class="pure-button pure-button-primary">Submit</a>
+              <a class="pure-button" ng-click="closeReview()">Close</a>
+            </fieldset>
+          </form>
+        </div>
+        <div class="review" ng-repeat="review in course.reviews" ng-click="expand(review)" ng-class="{expand: review.expanded}">
+          <img src="http://placekitten.com/g/40/40"/>
           <div class="name">A <b>{{review.type}}</b> Student
-          <div class="opinion">
-            Like <i class="fa" ng-class="{'fa-thumbs-o-up': review.like, 'fa-thumbs-o-down': !review.like}"></i>
-            Useful <i class="fa" ng-class="{'fa-thumbs-o-up': review.useful, 'fa-thumbs-o-down': !review.like}"></i>
-            Easy <i class="fa" ng-class="{'fa-thumbs-o-up': review.easy, 'fa-thumbs-o-down': !review.easy}"></i>
-          </div>
+            <div class="opinion">
+              Like <i class="fa" ng-class="{'fa-thumbs-o-up': review.like, 'fa-thumbs-o-down': !review.like}"></i>
+              Useful <i class="fa" ng-class="{'fa-thumbs-o-up': review.useful, 'fa-thumbs-o-down': !review.like}"></i>
+              Easy <i class="fa" ng-class="{'fa-thumbs-o-up': review.easy, 'fa-thumbs-o-down': !review.easy}"></i>
+            </div>
           </div>
           <div class="description">
             {{review.text}}
+          </div>
+          <div class="actions">
+            <a href="#">Report</a>
           </div>
         </div>
       </div>

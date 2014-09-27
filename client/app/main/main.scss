@@ -12,15 +12,36 @@ $bar-fg: #1f8dd6;
   cursor: pointer;
   text-align: left;
   position: relative;
+  img {
+    float: left;
+    margin: 5px;
+  }
   .description {
-    margin-top: 10px;
-    font-size: 12pt;
+    display: block;
+    font-size: 12pt !important;
     line-height: 14pt;
     text-align: justify;
-    max-height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  max-height: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  .actions {
+    display: none;
+  }
+  &.expand {
+    .description {
+      white-space: initial;
+    }
+    .actions {
+      display: block;
+      text-align: right;
+    }
+    white-space: initial;
+    max-height: initial;
   }
   &.review .name {
     display: block;
@@ -50,6 +71,24 @@ $bar-fg: #1f8dd6;
 }
 
 .coursepage {
+  .submit-box {
+    position: relative;
+    h3 {
+      display: inline-block;
+    }
+    .submit {
+      margin: 1em;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .pure-form fieldset {
+    padding: 0;
+    label.pure-checkbox {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
   .progress-bar {
     text-align: left;
     .info {
