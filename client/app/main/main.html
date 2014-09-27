@@ -1,28 +1,18 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
+<div class="hero">
+    <div class="hero-titles">
+        <h1 class="hero-site">UBCourses</h1>
+        <h2 class="hero-tagline">Find out the best courses at UBC!</h2>
     </div>
-  </div>
-</div>
 
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.0.13 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
+    <div class="hero-cta">
+        <div class="is-code-full">
+          <pre class="code code-wrap" data-language="html"><code class="rainbow"><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">link</span></span> <span class="support attribute">rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">stylesheet</span><span class="string quote">"</span> <span class="support attribute">href</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">http://yui.yahooapis.com/pure/0.5.0/pure-min.css</span><span class="string quote">"</span><span class="support tag close">&gt;</span></code></pre>
+        </div>
+
+        <p>
+            <a class="button-cta pure-button" href="/start/">Get Started</a>
+            <a class="button-secondary pure-button" href="https://github.com/yahoo/pure/">View on GitHub</a>
+        </p>
+    </div>
+</div>
