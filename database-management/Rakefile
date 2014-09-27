@@ -28,6 +28,10 @@ DataMapper.finalize
 task :default do
 end
 
+task :pry do
+  binding.pry
+end
+
 task :scrape_courses do
   require 'open-uri'
   html = Nokogiri::HTML(open('https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=0'))

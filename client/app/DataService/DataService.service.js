@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('ubcCourseApp')
-  .service('DataService', function () {
-    this.popularCourses = function() {
-      return [{
+  .service('DataService', function ($http) {
+    this.popularCourses = function(sort) {
+      if (_.isEmpty(sort)) {
+        sort = 'like';
+      }
+      /*return [{
         name: "CPSC 110",
         like: 0.10,
         useful: 0.12,
@@ -13,10 +16,12 @@ angular.module('ubcCourseApp')
         like: 0.30,
         useful: 0.134,
         easy: 0.32
-      }]
+      }]*/
+      return $http.get('/api/courses?sort='+sort);
     };
+
     this.getCourse = function(name) {
-      return {
+      /*return {
         name: name,
         like: 0.10,
         useful: 0.12,
@@ -29,6 +34,10 @@ angular.module('ubcCourseApp')
           type: "Computer Science",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est."
         }]
-      }
+      }*/
+      return $http.get('/api/course?course='+name);
     };
+    this.postReview = function(data) {
+      return $http.post('/api/review', data);
+    }
   });

@@ -38,7 +38,7 @@
             <fieldset>
               <legend>New Review</legend>
               <label for="field">Field of Interest</label>
-              <select class="pure-input-1" name="field">
+              <select class="pure-input-1" name="field" ng-model="foi">
                 <option>Adult and Higher Education</option>
                 <option>African Studies</option>
                 <option>Agricultural Economics</option>
@@ -286,19 +286,19 @@
               </label>
 
               <label for="like" class="pure-checkbox">
-                <input id="like" type="checkbox"> Like
+                <input id="like" type="checkbox" ng-model="like"> Like
               </label>
               <label for="useful" class="pure-checkbox">
-                <input id="useful" type="checkbox"> Useful
+                <input id="useful" type="checkbox" ng-model="useful"> Useful
               </label>
               <label for="easy" class="pure-checkbox">
-                <input id="easy" type="checkbox"> Easy
+                <input id="easy" type="checkbox" ng-model="easy"> Easy
               </label>
 
               <label for="text">Review</label>
-                <textarea class="pure-input-1" name="text" type="text"></textarea>
+                <textarea class="pure-input-1" name="text" type="text" ng-model="text"></textarea>
               </label>
-              <a class="pure-button pure-button-primary">Submit</a>
+              <a class="pure-button pure-button-primary" ng-click="review()">Submit</a>
               <a class="pure-button" ng-click="closeReview()">Close</a>
             </fieldset>
           </form>
@@ -316,7 +316,7 @@
             {{review.text}}
           </div>
           <div class="actions">
-            <a href="#">Report</a>
+            <a href="#" ng-click="report(review)">Report</a>
           </div>
         </div>
       </div>
