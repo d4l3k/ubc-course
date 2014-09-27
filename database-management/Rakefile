@@ -34,19 +34,21 @@ task :scrape_courses do
   departments = html.css("#mainTable td:nth-child(1)").map{|a|a.text.strip}
   len = departments.length
   departments.each_with_index do |dept, i|
-    puts "Scraping: #{dept} (#{i}/#{len})"
-    dept_html = Nokogiri::HTML(open("https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=1&dept=#{dept}"))
-    dept_courses = dept_html.css("#mainTable td:nth-child(1)").map{|a|a.text.strip}
-    dept_courses_names = dept_html.css("#mainTable td:nth-child(2)").map{|a|a.text.strip}
-    dept_courses.each_with_index do |course, j|
-      puts ":: #{course}"
-      id = course.split(" ").last
-      course_html = Nokogiri::HTML(open("https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=3&dept=#{dept}&course=#{id}"))
-      course_id = course.gsub(' ', '')
-      course_name = dept_courses_names[j]
-      description = course_html.css("p").first.text.strip
-      c = Course.first_or_create(id: course_id, department: dept, name: course_name, description: description)
-      binding.pry unless c.saved?
+    if Course.all(department: dept).length == 0 && !dept.include?("*")
+      puts "Scraping: #{dept} (#{i}/#{len})"
+      dept_html = Nokogiri::HTML(open("https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=1&dept=#{dept}"))
+      dept_courses = dept_html.css("#mainTable td:nth-child(1)").map{|a|a.text.strip}
+      dept_courses_names = dept_html.css("#mainTable td:nth-child(2)").map{|a|a.text.strip}
+      dept_courses.each_with_index do |course, j|
+        puts ":: #{course}"
+        id = course.split(" ").last
+        course_html = Nokogiri::HTML(open("https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=3&dept=#{dept}&course=#{id}"))
+        course_id = course.gsub(' ', '')
+        course_name = dept_courses_names[j]
+        description = course_html.css("p").first.text.strip
+        c = Course.first_or_create(id: course_id, department: dept, name: course_name, description: description)
+        binding.pry unless c.saved?
+      end
     end
   end
 end
