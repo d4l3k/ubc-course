@@ -1,0 +1,47 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="hero coursepage">
+    <div class="hero-titles">
+      <h1 class="hero-site">{{course.name}}</h1>
+      <h2 class="hero-tagline hero-smaller">{{course.description}}</h2>
+    </div>
+    <div class="content">
+      <div class="bars">
+        <div class="progress-bar">
+          Like
+          <div class="info">{{(course.like*100).toFixed(0)}}%</div>
+          <div class="bar-bg">
+            <div class="bar" style="width: {{course.like*100}}%"></div>
+          </div>
+        </div>
+        <div class="progress-bar">
+          Useful
+          <div class="info">{{(course.useful*100).toFixed(0)}}%</div>
+          <div class="bar-bg">
+            <div class="bar" style="width: {{course.useful*100}}%"></div>
+          </div>
+        </div>
+        <div class="progress-bar">
+          Easy
+          <div class="info">{{(course.easy*100).toFixed(0)}}%</div>
+          <div class="bar-bg">
+            <div class="bar" style="width: {{course.easy*100}}%"></div>
+          </div>
+        </div>
+      </div>
+      <h3>Reviews</h3>
+      <div class="reviews">
+        <div class="review" ng-repeat="review in course.reviews">
+          <div class="name">A <b>{{review.type}}</b> Student
+          <div class="opinion">
+            Like <i class="fa" ng-class="{'fa-thumbs-o-up': review.like, 'fa-thumbs-o-down': !review.like}"></i>
+            Useful <i class="fa" ng-class="{'fa-thumbs-o-up': review.useful, 'fa-thumbs-o-down': !review.like}"></i>
+            Easy <i class="fa" ng-class="{'fa-thumbs-o-up': review.easy, 'fa-thumbs-o-down': !review.easy}"></i>
+          </div>
+          </div>
+          <div class="description">
+            {{review.text}}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

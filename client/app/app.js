@@ -10,5 +10,12 @@ angular.module('ubcCourseApp', [
     $urlRouterProvider
       .otherwise('/');
 
+    $stateProvider
+      .state('course', {
+        url: '/course/{courseId}',
+        templateUrl: 'app/course/course.html',
+        controller: 'CourseCtrl'
+      });
+
     $locationProvider.html5Mode(true);
   });

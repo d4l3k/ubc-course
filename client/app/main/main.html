@@ -5,14 +5,32 @@
         <h2 class="hero-tagline">Find out the best courses at UBC!</h2>
     </div>
 
-    <div class="hero-cta">
-        <div class="is-code-full">
-          <pre class="code code-wrap" data-language="html"><code class="rainbow"><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">link</span></span> <span class="support attribute">rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">stylesheet</span><span class="string quote">"</span> <span class="support attribute">href</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">http://yui.yahooapis.com/pure/0.5.0/pure-min.css</span><span class="string quote">"</span><span class="support tag close">&gt;</span></code></pre>
-        </div>
-
-        <p>
-            <a class="button-cta pure-button" href="/start/">Get Started</a>
-            <a class="button-secondary pure-button" href="https://github.com/yahoo/pure/">View on GitHub</a>
-        </p>
+    <div class="content">
+      <div class="courses">
+        <a href="/course/{{course.name}}" class="course" ng-repeat="course in courses">
+          <div class="name">{{course.name}}</div>
+          <div class="caret"><i class="fa fa-chevron-right"></i></div>
+          <div class="bars">
+            <div class="progress-bar">
+              Like
+              <div class="bar-bg">
+                <div class="bar" style="width: {{course.like*100}}%"></div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              Useful
+              <div class="bar-bg">
+                <div class="bar" style="width: {{course.useful*100}}%"></div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              Easy
+              <div class="bar-bg">
+                <div class="bar" style="width: {{course.easy*100}}%"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
 </div>

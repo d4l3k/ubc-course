@@ -962,7 +962,7 @@ aside {
 
 .header {
      font-family: "omnes-pro", sans-serif;
-     max-width: 768px;
+     max-width: 100%;
      margin: 0 auto;
      padding: 1em;
      text-align: center;
@@ -1465,13 +1465,16 @@ a.pure-button-primary {
         font-family: "omnes-pro", sans-serif;
         padding: 0 1em;
         margin: 2em auto;
-        max-width: 768px;
+        max-width: 100%;
     }
     .hero-site {
         font-size: 400%;
         font-weight: 100;
         margin: 0;
         color: #1f8dd6;
+    }
+    .hero-smaller {
+      font-size: 200% !important;
     }
     .hero-tagline {
         font-size: 150%;
