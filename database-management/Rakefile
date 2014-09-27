@@ -1,0 +1,28 @@
+require 'bundler'
+Bundler.require
+
+DataMapper.setup(:default, 'postgres://postgres:@localhost/ubcourses')
+class Course
+  include DataMapper::Resource
+
+  property :id,         String, key: true
+  property :department, String
+  property :name,      String
+  property :description,       Text
+  has n, :reviews
+end
+class Review
+  include DataMapper::Resource
+
+  property :id,         Serial
+  property :like,      Boolean
+  property :useful,      Boolean
+  property :easy,      Boolean
+  property :text,       Text
+  belongs_to :course
+end
+DataMapper.auto_upgrade!
+DataMapper.finalize
+
+task :default do
+end
