@@ -11,14 +11,11 @@
           <option>Usefulness</option>
           <option>Easiness</option>
           <option>Name</option>
-        </select>
-        <select class="pure-input-1-4" ng-model="department">
+        </select>&nbsp;<select class="pure-input-1-4" ng-model="department">
           <option value="" selected>Department</option>
           <option ng-repeat="dept in departments">{{dept}}</option>
-        </select>
-        <input class="pure-input-1-4" type="text" ng-model="search" placeholder="Search"/>
-        &nbsp;
-        Showing {{shownCourses.length}} of {{filteredCourses.length}}
+        </select>&nbsp;<input class="pure-input-1-4" type="text" ng-model="search" placeholder="Search"/>
+        &nbsp;Showing {{shownCourses.length}} of {{filteredCourses.length}}
     </div>
     <div class="content">
       <div class="courses">
