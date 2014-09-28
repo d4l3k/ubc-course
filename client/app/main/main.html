@@ -6,16 +6,15 @@
     </div>
 
     <div class="content pure-form search-form" ng-class="{fixed: fixed}">
-        <select class="pure-input-1-4" ng-model="sort">
+        <div class="grid-1-4"><select class="pure-input-1" ng-model="sort">
           <option value="" selected>Popularity</option>
           <option>Usefulness</option>
           <option>Easiness</option>
           <option>Name</option>
-        </select>&nbsp;<select class="pure-input-1-4" ng-model="department">
+          </select></div><div class="grid-1-4"><select class="pure-input-1" ng-model="department">
           <option value="" selected>Department</option>
           <option ng-repeat="dept in departments">{{dept}}</option>
-        </select>&nbsp;<input class="pure-input-1-4" type="text" ng-model="search" placeholder="Search"/>
-        &nbsp;Showing {{shownCourses.length}} of {{filteredCourses.length}}
+            </select></div><div class="grid-1-4"><input class="pure-input-1" type="text" ng-model="search" placeholder="Search"/></div><div class="grid-1-4"><div class="pure-input-1">Showing {{shownCourses.length}} of {{filteredCourses.length}}</div></div>
     </div>
     <div class="content">
       <div class="courses">
