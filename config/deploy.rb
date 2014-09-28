@@ -1,7 +1,5 @@
-require 'mina'
-require 'mina/git'
-require 'mina/bundler'
-require 'mina/rvm'
+require 'bundler'
+Bundler.require
 
 set :application, "UBCourses"
 set :domain, "raven.fn.lc"

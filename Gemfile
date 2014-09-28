@@ -5,4 +5,6 @@ gem 'pry'
 gem 'rake'
 gem 'nokogiri'
 gem 'curb'
-gem 'mina'
+group :deploy do
+  gem 'mina'
+end
