@@ -30,7 +30,7 @@ angular.module('ubcCourseApp')
         like: $scope.like || false,
         useful: $scope.useful || false,
         easy: $scope.easy || false,
-        text: $scope.text,
+        text: $scope.text || '',
         foi: $scope.foi
       }).success(function() {
         DataService.getCourse($stateParams.courseId).success(function(course) {
