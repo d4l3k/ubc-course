@@ -1,8 +1,8 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="hero coursepage">
     <div class="hero-titles">
-      <h1 class="hero-site">{{course.name}}</h1>
-      <h2 class="hero-tagline hero-smaller">{{course.description}}</h2>
+      <h1 class="hero-site">{{course.id}}</h1>
+      <h2 class="hero-tagline hero-smaller">{{course.name}} — {{course.description}}</h2>
     </div>
     <div class="content">
       <div class="bars">
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="submit-box">
-        <h3>Reviews</h3>
+        <h3>Reviews ({{course.reviews.length}})</h3>
         <a class="pure-button submit" ng-click="openReview()">New</a>
       </div>
       <div class="reviews">
@@ -283,7 +283,8 @@
                 <option>Wood Products Processing</option>
                 <option>Zoology</option>
               </select>
-              </label>
+              <label for="professor">Professor</label>
+              <input id="professor" type="text" class="pure-input-1" ng-model="professor">
 
               <label for="like" class="pure-checkbox">
                 <input id="like" type="checkbox" ng-model="like"> Like
@@ -296,8 +297,7 @@
               </label>
 
               <label for="text">Review</label>
-                <textarea class="pure-input-1" name="text" type="text" ng-model="text"></textarea>
-              </label>
+              <textarea class="pure-input-1" name="text" type="text" ng-model="text"></textarea>
               <a class="pure-button pure-button-primary" ng-click="review()">Submit</a>
               <a class="pure-button" ng-click="closeReview()">Close</a>
             </fieldset>

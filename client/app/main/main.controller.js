@@ -9,11 +9,10 @@ angular.module('ubcCourseApp')
     $scope.$watch('search', updateFilter)
     $scope.$watch('department', updateFilter)
     function updateFilter() {
-      console.log("Woof");
       var $department = $scope.department;
       var $search = ($scope.search || '').toLowerCase();
       var $sort = $scope.sort;
-      $scope.filteredCourses = _.filter($scope.courses, function(v) {
+      $scope.filteredCourses = _.sortBy(_.filter($scope.courses, function(v) {
         var department = true;
         var sort = true;
         var search = true;
@@ -24,6 +23,16 @@ angular.module('ubcCourseApp')
           search = v.title.toLowerCase().indexOf($search) >= 0;
         }
         return department && sort && search;
+      }), function(a) {
+        if ($sort == 'Name') {
+          return a.id;
+        } else if ($sort == 'Usefulness') {
+          return 1-a.useful;
+        } else if ($sort == 'Easiness') {
+          return 1- a.easy;
+        } else {
+          return 1-a.like;
+        }
       });
       $scope.shownCourses = $scope.filteredCourses.slice(0,100);
     }
