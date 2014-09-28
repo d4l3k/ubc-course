@@ -22,6 +22,9 @@ input, select {
     border-color: #129FEA !important;
   }
 }
+.pure-form input[type="text"] {
+  padding: 0.53em 0.6em;
+}
 .search-form {
   text-align: left;
   &.fixed {
