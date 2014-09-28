@@ -26,7 +26,7 @@ angular.module('ubcCourseApp')
     $scope.review = function() {
       DataService.postReview({
         id: $scope.course.id,
-        professor: 'None',
+        professor: $scope.professor,
         like: $scope.like || false,
         useful: $scope.useful || false,
         easy: $scope.easy || false,
