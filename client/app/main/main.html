@@ -2,13 +2,25 @@
 <div class="hero">
     <div class="hero-titles">
         <h1 class="hero-site">UBCourses</h1>
-        <h2 class="hero-tagline">Find out the best courses at UBC!</h2>
+        <h2 class="hero-tagline">Find the best courses at UBC!</h2>
     </div>
 
-    <div class="content">
+    <div class="content pure-form">
+      <select class="pure-input-1-4" ng-model="sort">
+        <option value="" selected>Popularity</option>
+        <option value="" selected>Usefulness</option>
+        <option value="" selected>Easiness</option>
+        <option>Name</option>
+      </select>
+      <select class="pure-input-1-4" ng-model="department">
+        <option value="" selected>Department</option>
+        <option ng-repeat="dept in departments">{{dept}}</option>
+      </select>
+      <input type="text" ng-model="search" placeholder="Search"/>
+      Showing {{shownCourses.length}} of {{filteredCourses.length}}
       <div class="courses">
-        <a href="/course/{{course.id}}" class="course" ng-repeat="course in courses">
-          <div class="name">{{course.id}} - {{course.name}}</div>
+        <a href="/course/{{course.id}}" class="course" ng-repeat="course in shownCourses">
+          <div class="name">{{course.title}}</div>
           <div class="caret"><i class="fa fa-chevron-right"></i></div>
           <div class="bars">
             <div class="progress-bar">
