@@ -23,8 +23,19 @@ input, select {
   }
 }
 .search-form {
-  width: 100%;
   text-align: left;
+  &.fixed {
+    position: fixed;
+    left: 160px;
+    right: 0;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 0 8px white;
+    z-index: 100;
+    border-bottom: 1px solid $border;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 @media screen and (max-width: 42em) {
   .pure-input-1-4 {
@@ -105,11 +116,15 @@ input, select {
   }
   .name {
     display: inline-block;
-    width: 100%;
-    padding-right: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  &.course {
+    .name {
+      padding-right: 20px;
+      width: 100%;
+    }
   }
   .bars {
     * {

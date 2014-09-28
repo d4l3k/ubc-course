@@ -5,8 +5,7 @@
         <h2 class="hero-tagline">Find the best courses at UBC!</h2>
     </div>
 
-    <div class="content pure-form">
-      <div class="search-form">
+    <div class="content pure-form search-form" ng-class="{fixed: fixed}">
         <select class="pure-input-1-4" ng-model="sort">
           <option value="" selected>Popularity</option>
           <option>Usefulness</option>
@@ -20,7 +19,8 @@
         <input class="pure-input-1-4" type="text" ng-model="search" placeholder="Search"/>
         &nbsp;
         Showing {{shownCourses.length}} of {{filteredCourses.length}}
-      </div>
+    </div>
+    <div class="content">
       <div class="courses">
         <a href="/course/{{course.id}}" class="course" ng-repeat="course in shownCourses">
           <div class="name">{{course.title}}</div>

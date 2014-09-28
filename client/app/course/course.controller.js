@@ -19,10 +19,19 @@ angular.module('ubcCourseApp')
     };
     $scope.openReview = function() {
       $scope.reviewVisible = "block";
+      DataService.getProfs($scope.course.department_id).success(function(profs) {
+        $scope.profs = profs;
+      });
+      // Fields of Interest
+      DataService.getFOI().success(function(fois) {
+        $scope.fois = fois;
+      });
     }
     $scope.closeReview = function() {
       $scope.reviewVisible = "none";
     }
+    $scope.profs = [];
+    $scope.fois = []
     $scope.review = function() {
       DataService.postReview({
         id: $scope.course.id,

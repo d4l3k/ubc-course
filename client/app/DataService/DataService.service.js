@@ -12,6 +12,12 @@ angular.module('ubcCourseApp')
     this.getCourse = function(name) {
       return $http.get('/api/course?course='+name);
     };
+    this.getProfs = function(dept) {
+      return $http.get('/api/subjprofs?dept='+dept, {cache: true});
+    };
+    this.getFOI = function(dept) {
+      return $http.get('/api/fields', {cache: true});
+    };
     this.postReview = function(data) {
       return $http.post('/api/review', data);
     }

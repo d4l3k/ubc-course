@@ -8,9 +8,17 @@ angular.module('ubcCourseApp')
     $scope.$watch('sort', updateFilter)
     $scope.$watch('search', updateFilter)
     $scope.$watch('department', updateFilter)
+    var fixedTop = $('.search-form').position().top;
+    $(window).scroll(function(e) {
+      $scope.fixed = window.scrollY > fixedTop;
+      $scope.$apply();
+    });
+    function cleanQuery(query) {
+      return query.toLowerCase().replace(/[^a-z0-9]/g,'');
+    }
     function updateFilter() {
       var $department = $scope.department;
-      var $search = ($scope.search || '').toLowerCase();
+      var $search = cleanQuery($scope.search || '');
       var $sort = $scope.sort;
       $scope.filteredCourses = _.sortBy(_.filter($scope.courses, function(v) {
         var department = true;
@@ -20,7 +28,7 @@ angular.module('ubcCourseApp')
           department = v.id.slice(0, $department.length) == $department;
         }
         if ($search) {
-          search = v.title.toLowerCase().indexOf($search) >= 0;
+          search = cleanQuery(v.title).indexOf($search) >= 0;
         }
         return department && sort && search;
       }), function(a) {
@@ -39,7 +47,7 @@ angular.module('ubcCourseApp')
     $scope.departments = [];
     DataService.popularCourses().success(function(courses) {
       $scope.courses = _.map(courses, function(v) {
-        v.title = v.id + ' - ' + v.name;
+        v.title = v.id + ' — ' + v.name;
         return v;
       });
       updateFilter();
