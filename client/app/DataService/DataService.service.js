@@ -6,17 +6,6 @@ angular.module('ubcCourseApp')
       if (_.isEmpty(sort)) {
         sort = 'like';
       }
-      /*return [{
-        name: "CPSC 110",
-        like: 0.10,
-        useful: 0.12,
-        easy: 0.87
-      }, {
-        name: "CPSC 121",
-        like: 0.30,
-        useful: 0.134,
-        easy: 0.32
-      }]*/
       return $http.get('/api/courses', {cache: true});
     };
 
