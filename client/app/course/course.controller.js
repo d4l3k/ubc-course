@@ -32,7 +32,18 @@ angular.module('ubcCourseApp')
         easy: $scope.easy || false,
         text: $scope.text,
         foi: $scope.foi
+      }).success(function() {
+        DataService.getCourse($stateParams.courseId).success(function(course) {
+          $scope.course = course;
+        });
       });
+      $scope.closeReview();
+      $scope.professor = "";
+      $scope.life = false;
+      $scope.useful = false;
+      $scope.easy = false;
+      $scope.foi = null;
+      $scope.text = "";
     }
     $scope.report = function(review) {
     }

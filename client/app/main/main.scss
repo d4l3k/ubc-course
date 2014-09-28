@@ -49,6 +49,12 @@ $bar-fg: #1f8dd6;
   }
   .opinion {
     float: right;
+    i {
+      margin-right: 15px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
   .caret {
     float: right;
