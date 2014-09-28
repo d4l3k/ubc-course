@@ -9,6 +9,15 @@ angular.module('ubcCourseApp')
 
     $scope.isCollapsed = true;
 
+    setTimeout(function() {
+      var text = $(".hero-titles h1").text();
+      if (text != "UBCourses") {
+        document.title = text + " - UBCourses";
+      } else {
+        document.title = text;
+      }
+    }, 500);
+
     $scope.isActive = function(route) {
       return route === $location.path();
     };

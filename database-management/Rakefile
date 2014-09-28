@@ -16,6 +16,7 @@ class Review
 
   property :id,         Serial
   property :field,     Text
+  property :professor, Text
   property :like,      Boolean
   property :useful,      Boolean
   property :easy,      Boolean

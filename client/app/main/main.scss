@@ -5,6 +5,7 @@ $bar-bg: $border;
 $bar-fg: #1f8dd6;
 
 .course, .review {
+  color: #666 !important;
   border: 1px solid $border;
   padding: 10px;
   display: block;
