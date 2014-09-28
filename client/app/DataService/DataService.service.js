@@ -10,7 +10,7 @@ angular.module('ubcCourseApp')
     };
 
     this.getCourse = function(name) {
-      return $http.get('/api/course?course='+name, {cache: true});
+      return $http.get('/api/course?course='+name);
     };
     this.postReview = function(data) {
       return $http.post('/api/review', data);

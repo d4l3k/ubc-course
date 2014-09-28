@@ -6,18 +6,21 @@
     </div>
 
     <div class="content pure-form">
-      <select class="pure-input-1-4" ng-model="sort">
-        <option value="" selected>Popularity</option>
-        <option>Usefulness</option>
-        <option>Easiness</option>
-        <option>Name</option>
-      </select>
-      <select class="pure-input-1-4" ng-model="department">
-        <option value="" selected>Department</option>
-        <option ng-repeat="dept in departments">{{dept}}</option>
-      </select>
-      <input type="text" ng-model="search" placeholder="Search"/>
-      Showing {{shownCourses.length}} of {{filteredCourses.length}}
+      <div class="search-form">
+        <select class="pure-input-1-4" ng-model="sort">
+          <option value="" selected>Popularity</option>
+          <option>Usefulness</option>
+          <option>Easiness</option>
+          <option>Name</option>
+        </select>
+        <select class="pure-input-1-4" ng-model="department">
+          <option value="" selected>Department</option>
+          <option ng-repeat="dept in departments">{{dept}}</option>
+        </select>
+        <input class="pure-input-1-4" type="text" ng-model="search" placeholder="Search"/>
+        &nbsp;
+        Showing {{shownCourses.length}} of {{filteredCourses.length}}
+      </div>
       <div class="courses">
         <a href="/course/{{course.id}}" class="course" ng-repeat="course in shownCourses">
           <div class="name">{{course.title}}</div>

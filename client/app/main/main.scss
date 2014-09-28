@@ -1,15 +1,48 @@
 $border: #ddd;
 $border-active: darken($border, 20%);
 
+$text-color: #666;
 $bar-bg: $border;
 $bar-fg: #1f8dd6;
 
+@media screen and (min-width: 42em) {
+  .reviews .review.expand .opinion {
+    float: right;
+    position: initial;
+  }
+}
+input, select {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: $text-color !important;
+  &:hover { // &:focus {
+    border-color: $border-active !important;
+  }
+  &:focus, &:active {
+    border-color: #129FEA !important;
+  }
+}
+.search-form {
+  width: 100%;
+  text-align: left;
+}
+@media screen and (max-width: 42em) {
+  .pure-input-1-4 {
+    display: block !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+  .search-form {
+    text-align: center;
+  }
+}
+
 .course, .review {
-  color: #666 !important;
+  color: $text-color !important;
   border: 1px solid $border;
   padding: 10px;
   display: block;
-  margin: 10px;
+  margin: 10px 0;
   cursor: pointer;
   text-align: left;
   position: relative;
@@ -36,6 +69,13 @@ $bar-fg: #1f8dd6;
   &.expand {
     .description {
       white-space: initial;
+      display: block;
+    }
+    .opinion {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      float: initial;
     }
     .actions {
       display: block;
@@ -58,11 +98,18 @@ $bar-fg: #1f8dd6;
   }
   .caret {
     float: right;
+    position: absolute;
+    right: 10px;
+    top: 12px;
     display: inline-block;
   }
   .name {
     display: inline-block;
-    width: initial;
+    width: 100%;
+    padding-right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .bars {
     * {
@@ -72,7 +119,7 @@ $bar-fg: #1f8dd6;
       line-height: 10pt;
     }
   }
-  &:hover, &:active {
+  &:hover, &:active, &:focus {
     border-color: $border-active;
   }
 }
