@@ -5,11 +5,11 @@
           <div class="pure-menu pure-menu-open">
               <a class="pure-menu-heading" href="/">UBCourses</a>
               <ul>
-                  <li class="pure-menu-selected">
-                      <a href="/courses/">Courses</a>
+                  <li ng-class="getClass('/')">
+                      <a href="/">Courses</a>
                   </li>
-                  <li class=" ">
-                      <a href="http://www.ratemyprofessors.com/search.jsp?queryBy=schoolDetails&schoolName=University+of+British+Columbia&queryoption=TEACHER&id=viewprofessors">Professors</a>
+                  <li ng-class="getClass('/professors')">
+                      <a href="/professors">Professors</a>
                   </li>
                   <li class="menu-item-divided">
                       <a href="https://github.com/d4l3k/ubc-course">GitHub</a>

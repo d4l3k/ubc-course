@@ -65,7 +65,7 @@
         </div>
         <div class="review" ng-repeat="review in course.reviews" ng-click="expand(review)" ng-class="{expand: review.expanded}">
           <img src="http://placekitten.com/g/40/40"/>
-          <div class="name">A <b>{{review.field}}</b> Student<span ng-if="review.professor"> — {{review.professor}}</span>
+          <div class="name">A <b>{{review.field}}</b> Student<span ng-if="review.professor_name"> — <a href="/professor/{{review.professor_name}}">{{review.professor_name}}</a></span>
             <div class="opinion">
               Like <i class="fa" ng-class="{'fa-thumbs-o-up': review.like, 'fa-thumbs-o-down': !review.like}"></i>
               Useful <i class="fa" ng-class="{'fa-thumbs-o-up': review.useful, 'fa-thumbs-o-down': !review.useful}"></i>

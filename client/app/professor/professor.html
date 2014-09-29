@@ -1,0 +1,84 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="hero coursepage">
+    <div class="hero-titles">
+      <h1 class="hero-site">{{professor.name}}</h1>
+      <h2 class="hero-tagline hero-smaller">{{professor.name}} — {{professor.email}} — {{professor.phone}}</h2>
+    </div>
+    <div class="content">
+      <div class="bars">
+        <div class="progress-bar">
+          Like
+          <div class="info">{{(professor.like*100).toFixed(0)}}%</div>
+          <div class="bar-bg">
+            <div class="bar" style="width: {{professor.like*100}}%"></div>
+          </div>
+        </div>
+        <div class="progress-bar">
+          Useful
+          <div class="info">{{(professor.useful*100).toFixed(0)}}%</div>
+          <div class="bar-bg">
+            <div class="bar" style="width: {{professor.useful*100}}%"></div>
+          </div>
+        </div>
+        <div class="progress-bar">
+          Easy
+          <div class="info">{{(professor.easy*100).toFixed(0)}}%</div>
+          <div class="bar-bg">
+            <div class="bar" style="width: {{professor.easy*100}}%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="submit-box">
+        <h3>Reviews ({{professor.reviews.length}})</h3>
+        <a class="pure-button submit" ng-click="openReview()">New</a>
+      </div>
+      <div class="reviews">
+        <div class="review expand" ng-style="{display: reviewVisible}">
+          <form class="pure-form pure-form-stacked">
+            <fieldset>
+              <legend>New Review</legend>
+              <label for="field">Field of Interest</label>
+              <select class="pure-input-1" name="field" ng-model="foi">
+                <option ng-repeat="fl in fois">{{fl}}</option>
+              </select>
+              <label for="course">Course</label>
+              <select class="pure-input-1" name="course" ng-model="course">
+                <option ng-repeat="course in courses">{{course}}</option>
+              </select>
+
+              <label for="like" class="pure-checkbox">
+                <input id="like" type="checkbox" ng-model="like"> Like
+              </label>
+              <label for="useful" class="pure-checkbox">
+                <input id="useful" type="checkbox" ng-model="useful"> Useful
+              </label>
+              <label for="easy" class="pure-checkbox">
+                <input id="easy" type="checkbox" ng-model="easy"> Easy
+              </label>
+
+              <label for="text">Review</label>
+              <textarea class="pure-input-1" name="text" type="text" ng-model="text"></textarea>
+              <a class="pure-button pure-button-primary" ng-click="review()">Submit</a>
+              <a class="pure-button" ng-click="closeReview()">Close</a>
+            </fieldset>
+          </form>
+        </div>
+        <div class="review" ng-repeat="review in professor.reviews" ng-click="expand(review)" ng-class="{expand: review.expanded}">
+          <img src="http://placekitten.com/g/40/40"/>
+          <div class="name">A <b>{{review.field}}</b> Student<span ng-if="review.course_id">— <a href="/course/{{review.course_id}}">{{review.course_id}}</a></span>
+            <div class="opinion">
+              Like <i class="fa" ng-class="{'fa-thumbs-o-up': review.like, 'fa-thumbs-o-down': !review.like}"></i>
+              Useful <i class="fa" ng-class="{'fa-thumbs-o-up': review.useful, 'fa-thumbs-o-down': !review.useful}"></i>
+              Easy <i class="fa" ng-class="{'fa-thumbs-o-up': review.easy, 'fa-thumbs-o-down': !review.easy}"></i>
+            </div>
+          </div>
+          <div class="description">
+            {{review.text}}
+          </div>
+          <div class="actions">
+            <a href="#" ng-click="report(review)">Report</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

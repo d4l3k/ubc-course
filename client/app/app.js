@@ -6,7 +6,7 @@ angular.module('ubcCourseApp', [
   'ngSanitize',
   'ui.router'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
 

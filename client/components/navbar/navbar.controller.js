@@ -52,5 +52,8 @@ angular.module('ubcCourseApp')
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
+    $scope.getClass = function(url) {
+      return window.location.pathname == url ? 'pure-menu-selected' : '';
+    }
   });
 

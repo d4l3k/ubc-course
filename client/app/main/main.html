@@ -4,44 +4,5 @@
         <h1 class="hero-site">UBCourses</h1>
         <h2 class="hero-tagline">Find the best courses at UBC!</h2>
     </div>
-
-    <div class="content pure-form search-form" ng-class="{fixed: fixed}">
-        <div class="grid-1-4"><select class="pure-input-1" ng-model="sort">
-          <option value="" selected>Popularity</option>
-          <option>Usefulness</option>
-          <option>Easiness</option>
-          <option>Name</option>
-          </select></div><div class="grid-1-4"><select class="pure-input-1" ng-model="department">
-          <option value="" selected>Department</option>
-          <option ng-repeat="dept in departments">{{dept}}</option>
-            </select></div><div class="grid-1-4"><input class="pure-input-1" type="text" ng-model="search" placeholder="Search"/></div><div class="grid-1-4"><div class="pure-input-1">Showing {{shownCourses.length}} of {{filteredCourses.length}}</div></div>
-    </div>
-    <div class="content">
-      <div class="courses">
-        <a href="/course/{{course.id}}" class="course" ng-repeat="course in shownCourses">
-          <div class="name">{{course.title}}</div>
-          <div class="caret"><i class="fa fa-chevron-right"></i></div>
-          <div class="bars">
-            <div class="progress-bar">
-              Like
-              <div class="bar-bg">
-                <div class="bar" style="width: {{course.like*100}}%"></div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              Useful
-              <div class="bar-bg">
-                <div class="bar" style="width: {{course.useful*100}}%"></div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              Easy
-              <div class="bar-bg">
-                <div class="bar" style="width: {{course.easy*100}}%"></div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
+    <div review-sort display="display" type="course"></div>
 </div>

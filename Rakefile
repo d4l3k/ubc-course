@@ -139,3 +139,7 @@ task :scrape_profs_detail do
                email: tds[2].text.strip)
   end
 end
+
+task :beautify do
+  system("fixjsstyle {server,client/app}/**/*.js")
+end
