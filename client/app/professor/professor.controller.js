@@ -34,6 +34,8 @@ angular.module('ubcCourseApp')
     $scope.profs = [];
     $scope.fois = [];
     $scope.review = function() {
+      alert('TODO: Implement');
+      return;
       DataService.postReview({
         id: $scope.professor.id,
         professor: $scope.professor,
