@@ -51,8 +51,9 @@ input, select {
   }
 }
 div.pure-input-1 {
-  padding: 0.5em 0.6em;
+  padding: 0.5em 0;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 @media screen and (min-width: 44em) {
   .grid-1-4 + .grid-1-4 {
